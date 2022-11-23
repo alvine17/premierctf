@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            h1{
+                color: crimson;
+                text-align: center;
+            }
+
+            img {
+                text-align:center;
+                margin:auto;
+                display:flex;
+                width: 25%;
+            }
+
+        </style>
+        <script>
+            function Login(){
+                var pseudo=document.login.pseudo.value;
+                var username=pseudo.toLowerCase();
+                var password=document.login.password.value;
+                password=password.toLowerCase();
+                if (pseudo=="4dm1n" && decrypte(password)=="p4ssw0rd") {
+                    alert('GG');
+                } else { 
+                    alert('Essaie encore'); 
+                }
+            }
+            function decrypte(word) {
+                let cle = '1234567890qwertyuiopasdfghjklzxcvbnm'
+                let alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789'
+                let output = ''
+                for (let i = 0; i < word.length; i++) {
+                    for (let j = 0; j < cle.length; j++) {
+                        if (cle[j] == word[i]) {
+                            output += alphabet[j]
+                        }
+                    }
+                }
+                return output
+            }    
+
+        </script>
+    </head>
+    <body>
+        <h1> Devine les identifiants</h1>
+        <fieldset style="margin-top: 10px; padding: 10px;">
+            <legend><b>Connexion</b></legend><br/>
+            <form name="login" method="POST" action="">
+                Nom d'utilisateur : <input name="pseudo" /><br/>
+                Mot de passe : <input type="password" name="password" /></br></br>
+                <input onclick="Login()" type="button" value="login" name="button" />
+            </form>
+        </fieldset>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/SNice.svg/1200px-SNice.svg.png"/>
+    </body>
+ </html>
+
